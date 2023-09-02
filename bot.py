@@ -10,10 +10,7 @@ logger = logging.getLogger(__name__)
 
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-if bool(os.environ.get("ENV", False)):
-    from sample_config import Config
-else:
-    from config import Config
+from config import Config
 
 if __name__ == "__main__":
     plugins = dict(root="plugins")
@@ -24,4 +21,5 @@ if __name__ == "__main__":
         api_hash=Config.API_HASH,
         plugins=plugins
     )
+    print("✅ Bot Run Successfully")
     bot.run()
